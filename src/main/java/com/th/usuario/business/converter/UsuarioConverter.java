@@ -82,4 +82,15 @@ public class UsuarioConverter {
                 .numero(telefone.getNumero())
                 .build();
     }
+
+    public Usuario updateUsuario(UsuarioDto usuarioDto,Usuario entity){
+        return Usuario.builder()
+                .nome(usuarioDto.getNome() != null ? usuarioDto.getNome() : entity.getNome() )
+                .senha(usuarioDto.getSenha() != null ? usuarioDto.getSenha() : entity.getSenha())
+                .id(entity.getId())
+                .email(usuarioDto.getEmail() != null ? usuarioDto.getEmail() : entity.getEmail())
+                .telefones(entity.getTelefones())
+                .enderecos(entity.getEnderecos())
+                .build();
+    }
 }
